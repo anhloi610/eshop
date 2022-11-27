@@ -10,8 +10,8 @@ using eShopSolution.Data.EF;
 namespace eShopSolution.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    [Migration("20221127031012_Initial")]
-    partial class Initial
+    [Migration("20221127185642_dataseed")]
+    partial class dataseed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,23 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Key");
 
                     b.ToTable("Appconfigs");
+
+                    b.HasData(
+                        new
+                        {
+                            Key = "HomeTitle",
+                            Value = "THIS IS HOME PAGE OF SOLUTION"
+                        },
+                        new
+                        {
+                            Key = "HomeDescription",
+                            Value = "THIS IS DESCRIPTION  OF SOLUTION"
+                        },
+                        new
+                        {
+                            Key = "HomeKeyWord",
+                            Value = "THIS IS KEYWORD  OF SOLUTION"
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Cart", b =>
@@ -92,6 +109,22 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Catergories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            IsShowOnHome = true,
+                            SortOrder = 1,
+                            Status = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            IsShowOnHome = true,
+                            SortOrder = 2,
+                            Status = 0
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.CategoryTranslation", b =>
@@ -137,6 +170,48 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("LanguageId");
 
                     b.ToTable("CategoryTranslations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            LanguageId = "vi-VN",
+                            Name = "Áo Nam sơ mi CPBAOLAM",
+                            SeoAlias = "Áo Nam sơ mi CPBAOLAM",
+                            SeoDescription = "Áo Nam sơ mi CPBAOLAM",
+                            SeoTitle = "Áo Nam sơ mi CPBAOLAM"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            LanguageId = "en-US",
+                            Name = "Men Shirt ",
+                            SeoAlias = "",
+                            SeoDescription = "The Shirt for the man",
+                            SeoTitle = ""
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 2,
+                            LanguageId = "vi-VN",
+                            Name = "Áo Nữ sơ mi CPBAOLAM",
+                            SeoAlias = "Áo Nữ sơ mi CPBAOLAM",
+                            SeoDescription = "Áo Nữ sơ mi CPBAOLAM",
+                            SeoTitle = "Áo Nữ sơ mi CPBAOLAM"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 2,
+                            LanguageId = "en-US",
+                            Name = "Women of Shirt ",
+                            SeoAlias = "women-shirt",
+                            SeoDescription = "The Shirt for the women",
+                            SeoTitle = "women-shirt"
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Contact", b =>
@@ -193,6 +268,20 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Languages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "vi-VN",
+                            IsDefault = true,
+                            Name = "Tiếng việt"
+                        },
+                        new
+                        {
+                            Id = "en-US",
+                            IsDefault = false,
+                            Name = "English"
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Order", b =>
@@ -207,7 +296,7 @@ namespace eShopSolution.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 27, 10, 10, 12, 594, DateTimeKind.Local).AddTicks(6455));
+                        .HasDefaultValue(new DateTime(2022, 11, 28, 1, 56, 42, 303, DateTimeKind.Local).AddTicks(7121));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -294,6 +383,26 @@ namespace eShopSolution.Data.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Product");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            DateCreated = new DateTime(2022, 11, 28, 1, 56, 42, 311, DateTimeKind.Local).AddTicks(8147),
+                            OriginalPrice = 100000m,
+                            Price = 200000m,
+                            Stock = 0,
+                            Viewcount = 0
+                        },
+                        new
+                        {
+                            ID = 2,
+                            DateCreated = new DateTime(2022, 11, 28, 1, 56, 42, 311, DateTimeKind.Local).AddTicks(9030),
+                            OriginalPrice = 100000m,
+                            Price = 200000m,
+                            Stock = 0,
+                            Viewcount = 0
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.ProductInCategory", b =>
@@ -309,6 +418,18 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductInCatergory");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryId = 1,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CategoryId = 2,
+                            ProductId = 2
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.ProductTranslation", b =>
@@ -359,6 +480,52 @@ namespace eShopSolution.Data.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductTranslations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "...",
+                            Details = "Mô tả sản phẩm",
+                            LanguageId = "vi-VN",
+                            Name = "Áo Nam",
+                            ProductId = 1,
+                            SeoAlias = "",
+                            SeoDescription = "Áo thời trang Nam",
+                            SeoTitle = "Sản phẩm áo thời trang nam"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "...",
+                            Details = "Description for the products",
+                            LanguageId = "en-US",
+                            Name = "Men Shirt",
+                            ProductId = 1,
+                            SeoAlias = "",
+                            SeoDescription = "The Shirt for the man",
+                            SeoTitle = "The shirt for the man"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            LanguageId = "vi-VN",
+                            Name = "Áo Nữ sơ mi CPBAOLAM",
+                            ProductId = 2,
+                            SeoAlias = "Áo Nữ sơ mi CPBAOLAM",
+                            SeoDescription = "Áo Nữ sơ mi CPBAOLAM",
+                            SeoTitle = "Áo Nữ sơ mi CPBAOLAM"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            LanguageId = "en-US",
+                            Name = "Women of Shirt ",
+                            ProductId = 2,
+                            SeoAlias = "women-shirt",
+                            SeoDescription = "The Shirt for the women",
+                            SeoTitle = "women-shirt"
+                        });
                 });
 
             modelBuilder.Entity("eShopSolution.Data.Entities.Promotion", b =>

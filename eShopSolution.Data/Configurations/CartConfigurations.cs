@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace eShopSolution.Data.Configurations
 {
-    class CartConfigurations : IEntityTypeConfiguration<Cart>
+    public class CartConfigurations : IEntityTypeConfiguration<Cart>
     {
         public void Configure(EntityTypeBuilder<Cart> builder)
         {

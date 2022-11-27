@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using eShopSolution.Data.Entities;
 namespace eShopSolution.Data.Configurations
 {
-    class OrderDetailsConfiguration : IEntityTypeConfiguration<OrderDetail>
+    public class OrderDetailsConfiguration : IEntityTypeConfiguration<OrderDetail>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<OrderDetail> builder)
         {
