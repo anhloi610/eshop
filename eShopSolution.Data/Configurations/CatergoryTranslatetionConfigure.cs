@@ -6,7 +6,7 @@ using eShopSolution.Data.Entities;
 
 namespace eShopSolution.Data.Configurations
 {
-    class CatergoryTranslatetionConfigure:IEntityTypeConfiguration<CategoryTranslation>
+   public class CatergoryTranslatetionConfigure:IEntityTypeConfiguration<CategoryTranslation>
     {
 
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<CategoryTranslation> builder)

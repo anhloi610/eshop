@@ -5,7 +5,7 @@ using System.Text;
 using eShopSolution.Data.Entities;
 namespace eShopSolution.Data.Configurations
 {
-    class ProductInCatergoryCf : IEntityTypeConfiguration<ProductInCategory>
+    public class ProductInCatergoryCf : IEntityTypeConfiguration<ProductInCategory>
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<ProductInCategory> builder)
         {
